@@ -1,0 +1,37 @@
+.crossword-grid {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  .crossword-row {
+    display: flex;
+  }
+  
+  .crossword-cell {
+    width: 2em;
+    height: 2em;
+    border: 1px solid #000;
+    margin: 0.1em;
+    text-align: center;
+    text-transform: uppercase; /* Capitalize letters */
+    font-size: 1em;
+    line-height: 2em;
+  }
+  
+  .crossword-clues {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .crossword-clues strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .crossword-clues p {
+    margin: 5px 0;
+  }
+  
