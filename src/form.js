@@ -12,11 +12,26 @@ const FormWithValidation = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  // Function to check if there are any errors
+  const hasErrors = () => {
+    return Object.keys(errors).some((key) => errors[key]);
+  };
+
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-    // Perform submission tasks, e.g., sending data to an API
+    // Check if there are no errors before submitting
+    if (!hasErrors()) {
+      // Perform submission tasks, e.g., sending data to an API
+  
+      // Reset the form fields
+      setForm({
+        email: '',
+        password: '',
+      });
+      // Optionally you could also reset any errors
+      setErrors({});
+    }
   };
 
   // Function to update the form state and validate
@@ -27,21 +42,16 @@ const FormWithValidation = () => {
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
 
     // Validate fields and set error messages
-    let validationErrors = {};
-    if (name === 'email' && !validateEmail(value)) {
-      validationErrors.email = 'Invalid email address';
+    let validationErrors = { ...errors };
+    if (name === 'email') {
+      validationErrors.email = validateEmail(value) ? '' : 'Invalid email address';
     }
-    if (name === 'password' && value.length < 6) {
-      validationErrors.password = 'Password should be at least 6 characters long';
+    if (name === 'password') {
+      validationErrors.password = value.length >= 6 ? '' : 'Password should be at least 6 characters long';
     }
     
     // Set validation errors in state
     setErrors(validationErrors);
-  };
-
-  // Function to check if there are any errors
-  const hasErrors = () => {
-    return Object.keys(errors).some((key) => errors[key]);
   };
 
   return (
