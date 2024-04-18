@@ -15,7 +15,7 @@ function App() {
         <BMICalculator />
         <FormWithValidation />
         <CrosswordPuzzle />
-        <ImageCarousel images={['https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150']} />
+        <ImageCarousel images={['https://via.placeholder.com/150', 'https://via.placeholder.com/100', 'https://via.placeholder.com/50']} />
       </main>
     </div>
   );
