@@ -23,7 +23,6 @@ const CrosswordGrid = ({ grid, updateGrid }) => {
               onChange={(e) => updateGrid(rowIndex, cellIndex, e.target.value)}
               maxLength={1}
               className="crossword-cell"
-              disabled={cell !== 0}
             />
           ))}
         </div>
