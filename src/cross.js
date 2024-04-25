@@ -35,11 +35,8 @@ const CrosswordPuzzle = () => {
   const [grid, setGrid] = useState(initialGrid);
 
   const updateGrid = (row, col, value) => {
-    // Clone the grid to create a new state
     const newGrid = grid.map(row => row.slice());
-    // Update the letter in the cloned grid
     newGrid[row][col] = value.toUpperCase();
-    // Update the state
     setGrid(newGrid);
   };
 
